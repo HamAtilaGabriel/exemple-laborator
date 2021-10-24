@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,13 +7,12 @@ using System.Threading.Tasks;
 
 namespace Exemple.Domain
 {
-    public record StudentRegistrationNumber
+    public record  ProdusCantitate
     {
         private static readonly Regex ValidPattern = new("^LM[0-9]{5}$");
-
         public string Value { get; }
 
-        private StudentRegistrationNumber(string value)
+        private ProdusCantitate(string value)
         {
             if (ValidPattern.IsMatch(value))
             {
@@ -21,7 +20,7 @@ namespace Exemple.Domain
             }
             else
             {
-                throw new InvalidStudentRegistrationNumberException("");
+                throw new InvalidProdusCantitate("WRONG INPUT");
             }
         }
 
